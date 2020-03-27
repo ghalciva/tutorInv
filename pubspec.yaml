@@ -30,11 +30,6 @@ dev_dependencies:
 
   flutter_launcher_icons: "^0.6.1"
 
-flutter_icons:
-  image_path: "assets/icon/icon.png" 
-  Android: true
-  ios: true
-
 # The following section is specific to Flutter.
 flutter:
   uses-material-design: true

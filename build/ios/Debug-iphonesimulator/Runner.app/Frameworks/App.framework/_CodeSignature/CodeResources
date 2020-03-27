@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		O2DdbRx1GGecahOMTmMk5Qzj/lQ=
+		4lkxbHp8l/6zS0gzt+f0FGFtYHM=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -43,10 +43,6 @@
 		<key>flutter_assets/assets/fonts/Poppins-SemiBold.ttf</key>
 		<data>
 		4aAaJA+0SXl6wIo3SQ1ZthoFnm0=
-		</data>
-		<key>flutter_assets/assets/images/logo.png</key>
-		<data>
-		JJ0GicMRw/NGeD6Z8J6/Q9CYu1M=
 		</data>
 		<key>flutter_assets/assets/images/slider_1.png</key>
 		<data>
@@ -87,11 +83,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			O2DdbRx1GGecahOMTmMk5Qzj/lQ=
+			4lkxbHp8l/6zS0gzt+f0FGFtYHM=
 			</data>
 			<key>hash2</key>
 			<data>
-			D0zoOd8qfJW3IRdK7nE1MfehqLJcympuqA+BbVEye/A=
+			bjot4JOXHp3uaeUEwMaVifrnY8/is97Mcx6VraqwxXs=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -180,17 +176,6 @@
 			<key>hash2</key>
 			<data>
 			PQgaHnJzotj/ZjIYenNiTmOfeFhqFMInonBnwra+g1M=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/images/logo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JJ0GicMRw/NGeD6Z8J6/Q9CYu1M=
-			</data>
-			<key>hash2</key>
-			<data>
-			2K7Vd4ZL4ngwxF8NT/GYSRfmESlNPOjS9tcEsgsil08=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/slider_1.png</key>
