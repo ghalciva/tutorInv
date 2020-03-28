@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "367278709299",
+    "firebase_url": "https://flutterti.firebaseio.com",
+    "project_id": "flutterti",
+    "storage_bucket": "flutterti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367278709299:android:5974c144ddd476af442146",
+        "android_client_info": {
+          "package_name": "com.organization.tutorInv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367278709299-hd97gfira8avvrnq00ua6agslhbnj5j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDurxgu2ho1JTItJS-JITss9sKHWAWrMZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367278709299-hd97gfira8avvrnq00ua6agslhbnj5j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

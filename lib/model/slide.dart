@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_onboarding_ui_concept/constants/constants.dart';
+import 'package:tutorInv/constants/constants.dart';
 
 class Slide {
   final String sliderImageUrl;

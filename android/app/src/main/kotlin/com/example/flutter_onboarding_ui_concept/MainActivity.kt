@@ -1,4 +1,4 @@
-package com.example.flutter_onboarding_ui_concept
+package com.organization.tutorInv
 
 import android.os.Bundle
 
