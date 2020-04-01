@@ -9,5 +9,4 @@ class Constants{
   static const String SLIDER_DESC2 = "Contamos con una amplia cadena de investigadores, listos para ayudarte con lo que necesites.";
   static const String SLIDER_HEADING_3 = "Soporte en linea";
   static const String SLIDER_DESC3 = "Si tienes dudas, puedes contactarnos mediante la plataforma. Estamos para ti.";
-
 }

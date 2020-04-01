@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../widgets/slide_item.dart';
-import '../model/slide.dart';
+import '../screens/home_screen.dart';
+import '../widgets/slide_itemw.dart';
+import '../model/slider.dart';
 import '../widgets/slide_dots.dart';
-import '../screens/login_screen.dart';
 import '../screens/signup_modal_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 300),
+        duration: Duration(milliseconds: 500),
         curve: Curves.easeIn,
       );
     });
@@ -57,6 +57,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      FlatButton(
+                        child: Text(
+                          'SALTAR',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        textColor: Colors.grey,
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(HomeScreen.routeName);
+                        },
+                      ),
+                    ],
+                  ),
               Expanded(
                 child: Stack(
                   alignment: AlignmentDirectional.bottomCenter,
@@ -65,8 +83,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       scrollDirection: Axis.horizontal,
                       controller: _pageController,
                       onPageChanged: _onPageChanged,
-                      itemCount: slideList.length,
-                      itemBuilder: (ctx, i) => SlideItem(i),
+                      itemCount: sliderList.length,
+                      itemBuilder: (ctx, i) => SlideItemW(i),
                     ),
                     Stack(
                       alignment: AlignmentDirectional.topStart,
@@ -77,7 +95,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              for(int i = 0; i<slideList.length; i++)
+                              for(int i = 0; i<sliderList.length; i++)
                                 if( i == _currentPage )
                                   SlideDots(true)
                                 else
@@ -113,26 +131,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       Navigator.of(context).pushNamed(SignupModal.routeName);
                     },
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Ya tienes cuenta?',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      FlatButton(
-                        child: Text(
-                          'Inicia sesion',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        textColor: Colors.blue,
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(LoginScreen.routeName);
-                        },
-                      ),
-                    ],
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               )
