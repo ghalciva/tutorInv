@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import './screens/getting_started_screen.dart';
 import './screens/login_screen.dart';
 import './screens/signup_screen.dart';
+import './screens/home_screen.dart';
+import './screens/signup_modal_screen.dart';
 
 void main() {
 
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (ctx) => LoginScreen(),
         SignupScreen.routeName: (ctx) => SignupScreen(),
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+        SignupModal.routeName: (ctx) => SignupModal(),
       },
     );
   }
