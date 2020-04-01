@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorinv/screens/signup_account_type_screen.dart';
 import '../screens/signup_screen.dart';
 
 class SignupModal extends StatelessWidget {
@@ -65,7 +66,7 @@ class SignupModal extends StatelessWidget {
                       height: 50,
                     ),
                     Text(
-                        'O llena un formulario: ',
+                        'O ingresa tus datos: ',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -88,7 +89,7 @@ class SignupModal extends StatelessWidget {
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(SignupScreen.routeName);
+                        Navigator.of(context).pushNamed(SignupAccountType.routeName);
                       },
                     ),
                     SizedBox(
