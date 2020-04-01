@@ -6,7 +6,7 @@ import '../widgets/slide_item.dart';
 import '../model/slide.dart';
 import '../widgets/slide_dots.dart';
 import '../screens/login_screen.dart';
-import '../screens/signup_screen.dart';
+import '../screens/signup_modal_screen.dart';
 
 class GettingStartedScreen extends StatefulWidget {
   @override
@@ -109,7 +109,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
                     color: Theme.of(context).secondaryHeaderColor,
                     textColor: Colors.white,
                     onPressed: () {
-                      Navigator.of(context).pushNamed(SignupScreen.routeName);
+                      Navigator.of(context).pushNamed(SignupModal.routeName);
                     },
                   ),
                   Row(
