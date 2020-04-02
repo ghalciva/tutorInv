@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tutorinv/screens/my_files_screen.dart';
+import 'package:tutorinv/screens/messages_screen.dart';
+import 'package:tutorinv/screens/my_profile_screen.dart';
+import 'package:tutorinv/screens/search_screen.dart';
+import 'package:tutorinv/screens/upload_files_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -8,26 +13,25 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedPage = 0;
-  final _pageOptions = [
-    Text('Item1'),
-    Text('Item2'),
-    Text('Item3'),
-    Text('Item4'),
-    Text('Item5'),
+
+  final List<Widget>_pageOptions = [
+    MessageScreen(),
+    MyFilesScreen(),
+    UploadFilesScreen(),
+    SearchScreen(),
+    MyProfileScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tutor de Investigacion'),
-      ),
       body: _pageOptions[_selectedPage],
       drawerScrimColor: Colors.blueGrey,
       bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.blue,
         currentIndex: _selectedPage,
+        type: BottomNavigationBarType.fixed,
         onTap: (int index) {
           setState(() {
             _selectedPage = index;
@@ -46,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             BottomNavigationBarItem(
             icon: Icon(Icons.add_circle),
-            title: Text('Subir archivo'),
+            title: Text('Subir'),
             ),
 
             BottomNavigationBarItem(
