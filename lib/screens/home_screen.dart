@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawerScrimColor: Colors.blueGrey,
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.deepOrange,
         currentIndex: _selectedPage,
         type: BottomNavigationBarType.fixed,
         onTap: (int index) {
