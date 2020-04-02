@@ -56,7 +56,7 @@ class SignupModal extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.blue, width: 2),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).secondaryHeaderColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {},
@@ -84,7 +84,7 @@ class SignupModal extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.deepOrange, width: 2),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: Theme.of(context).buttonColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {

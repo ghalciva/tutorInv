@@ -30,7 +30,7 @@ class SlideItem extends StatelessWidget {
           slideList[index].sliderHeading,
           style: TextStyle(
             fontSize: 22,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).secondaryHeaderColor,
           ),
         ),
         SizedBox(

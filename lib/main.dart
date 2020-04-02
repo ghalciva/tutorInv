@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
       title: 'Tutor Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        secondaryHeaderColor: Colors.deepOrange,
+        primarySwatch: Colors.blueGrey,
+        secondaryHeaderColor: Colors.blue,
+        buttonColor: Colors.deepOrange,
       ),
       home: GettingStartedScreen(),
       routes: {
@@ -42,4 +43,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

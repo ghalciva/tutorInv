@@ -106,7 +106,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     padding: const EdgeInsets.all(15),
-                    color: Theme.of(context).secondaryHeaderColor,
+                    color: Theme.of(context).buttonColor,
                     textColor: Colors.white,
                     onPressed: () {
                       Navigator.of(context).pushNamed(SignupModal.routeName);

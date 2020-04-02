@@ -56,7 +56,7 @@ class SignupAccountType extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.deepOrange, width: 2),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: Theme.of(context).buttonColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
@@ -78,7 +78,7 @@ class SignupAccountType extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.deepOrangeAccent, width: 2),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: Theme.of(context).buttonColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {

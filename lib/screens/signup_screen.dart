@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './welcome_screen.dart';
+import './home_screen.dart';
 
 class SignupScreen extends StatelessWidget {
   static const routeName = '/signup';
@@ -133,11 +133,11 @@ class SignupScreen extends StatelessWidget {
                         borderSide: BorderSide(color: Colors.deepOrange, width: 2),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      color: Theme.of(context).secondaryHeaderColor,
+                      color: Theme.of(context).buttonColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(WelcomeScreen.routeName);
+                        Navigator.of(context).pushNamed(HomeScreen.routeName);
                       },
                     ),
                   ],
