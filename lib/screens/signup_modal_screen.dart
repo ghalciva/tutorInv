@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tutorinv/screens/signup_account_type_screen.dart';
-import '../screens/signup_screen.dart';
 
 class SignupModal extends StatelessWidget {
   static const routeName = '/signupmodal';

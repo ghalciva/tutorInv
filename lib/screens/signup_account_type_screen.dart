@@ -61,6 +61,7 @@ class SignupAccountType extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
                         Navigator.of(context).pushNamed(SignupScreen.routeName);
+                        //hire role
                       },
                     ),
                     SizedBox(
@@ -82,6 +83,7 @@ class SignupAccountType extends StatelessWidget {
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
                         Navigator.of(context).pushNamed(SignupScreen.routeName);
+                        //worker role
                       },
                     ),
                     SizedBox(
