@@ -47,7 +47,7 @@ class SignupAccountType extends StatelessWidget {
                     ),
                     FlatButton(
                       child: Text(
-                        'Quiero contratar',
+                        'Soy investigador',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -69,7 +69,7 @@ class SignupAccountType extends StatelessWidget {
                     ),
                     FlatButton(
                       child: Text(
-                        'Quiero trabajar',
+                        'Necesito asesoría',
                         style: TextStyle(
                           fontSize: 20,
                         ),
