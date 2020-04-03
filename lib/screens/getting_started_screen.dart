@@ -123,7 +123,7 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
                       ),
                       FlatButton(
                         child: Text(
-                          'Inicia sesion',
+                          'Inicia sesión',
                           style: TextStyle(fontSize: 18),
                         ),
                         textColor: Colors.blue,

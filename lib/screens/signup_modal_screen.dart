@@ -98,14 +98,16 @@ class SignupModal extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Confirmado este paso, estas aceptando las \n politicas de privacidad de Investig-arte',
+                        'Confirmado este paso, estás aceptando las \n políticas de privacidad de Investig-arte',
                         style: TextStyle(
                           fontSize: 14,
                         ),
+                        textAlign: 
+                          TextAlign.center,
                       ),
                       FlatButton(
                         child: Text(
-                          'Ver terminos y condiciones',
+                          'Ver términos y condiciones',
                           style: TextStyle(fontSize: 14),
                         ),
                         textColor: Colors.blue,

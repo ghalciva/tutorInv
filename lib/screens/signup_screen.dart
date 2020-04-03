@@ -45,7 +45,7 @@ class SignupScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: 'Correo electronico',
+                        hintText: 'Correo electrónico',
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -86,7 +86,7 @@ class SignupScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: 'Contrasena',
+                        hintText: 'Contraseña',
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -107,7 +107,7 @@ class SignupScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: 'Confirmar contrasena',
+                        hintText: 'Confirmar contraseña',
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),

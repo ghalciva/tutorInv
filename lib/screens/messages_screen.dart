@@ -33,7 +33,66 @@ class _MessageScreenState extends State<MessageScreen> {
         ],
       ),
       body: Center(
-        child: Text('Pagina de mensajes')
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Bienvenido a tus mensajes', 
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+                ),
+              ),
+            SizedBox(
+                height: 20,
+              ),
+            Text(
+              'Parece que no tienes ningun mensaje \n ¿Qué esperas? Conéctate.', 
+              style: 
+              TextStyle(fontSize: 16), 
+              textAlign: 
+              TextAlign.center,
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  child: Text(
+                    'Navega',
+                    style: TextStyle(
+                      fontSize: 15,
+                      ),
+                    ),
+                    textColor: 
+                      Colors.deepOrange, 
+                      onPressed: () {
+                      },
+                ),
+                Text(
+                  'o', 
+                  style: 
+                  TextStyle(fontSize: 16),
+                ),
+                FlatButton(
+                  child: Text(
+                    'Sube un proyecto',
+                    style: TextStyle(
+                      fontSize: 15
+                      ),
+                    ),
+                    textColor: 
+                      Colors.deepOrange, 
+                      onPressed: () {
+                      },
+                ),
+              ],
+            )
+
+
+
+          ],
+        )
         ),
     );
   } 
