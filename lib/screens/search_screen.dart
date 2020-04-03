@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
+  static const routeName = '/searchscreen';
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }

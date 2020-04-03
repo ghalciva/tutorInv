@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tutorinv/screens/search_screen.dart';
 import 'package:tutorinv/screens/signup_account_type_screen.dart';
 
 import './screens/getting_started_screen.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         SignupModal.routeName: (ctx) => SignupModal(),
         SignupAccountType.routeName: (ctx) => SignupAccountType(),
         WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
+        SearchScreen.routeName: (ctx) => SearchScreen(),
       },
     );
   }

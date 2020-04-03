@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tutorinv/screens/upload_files_screen.dart';
+import '../screens/search_screen.dart';
 import '../constants/constants.dart';
 
 class MessageScreen extends StatefulWidget {
@@ -54,7 +56,6 @@ class _MessageScreenState extends State<MessageScreen> {
               TextAlign.center,
             ),
             Row(
-              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 FlatButton(
@@ -67,8 +68,10 @@ class _MessageScreenState extends State<MessageScreen> {
                     textColor: 
                       Colors.deepOrange, 
                       onPressed: () {
+                        SearchScreen();
                       },
                 ),
+                Padding(padding: EdgeInsetsDirectional.only(start:0.0, end:0.0, top:0.0, bottom:0.0 )),
                 Text(
                   'o', 
                   style: 
@@ -84,6 +87,7 @@ class _MessageScreenState extends State<MessageScreen> {
                     textColor: 
                       Colors.deepOrange, 
                       onPressed: () {
+                        UploadFilesScreen();
                       },
                 ),
               ],
