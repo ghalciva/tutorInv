@@ -38,14 +38,16 @@ class SignupScreen extends StatelessWidget {
                       height: 130,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     TextField(
                       style: TextStyle(fontSize: 18, color: Colors.black54),
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
                         hintText: 'Correo electrónico',
+                        prefixIcon: Icon(Icons.email, color: Colors.grey,),
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -62,10 +64,12 @@ class SignupScreen extends StatelessWidget {
                     ),
                     TextField(
                       style: TextStyle(fontSize: 18, color: Colors.black54),
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
                         hintText: 'Usuario',
+                        prefixIcon: Icon(Icons.person, color: Colors.grey,),
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -83,10 +87,12 @@ class SignupScreen extends StatelessWidget {
                     TextField(
                       obscureText: true,
                       style: TextStyle(fontSize: 18, color: Colors.black54),
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
                         hintText: 'Contraseña',
+                        prefixIcon: Icon(Icons.lock, color: Colors.grey,),
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -104,10 +110,12 @@ class SignupScreen extends StatelessWidget {
                     TextField(
                       obscureText: true,
                       style: TextStyle(fontSize: 18, color: Colors.black54),
+                      keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
                         hintText: 'Confirmar contraseña',
+                        prefixIcon: Icon(Icons.lock, color: Colors.grey,),
                         contentPadding: const EdgeInsets.all(15),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
@@ -120,7 +128,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
                     FlatButton(
                       child: Text(
