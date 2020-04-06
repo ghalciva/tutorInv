@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';
@@ -28,14 +29,16 @@ class LoginScreen extends StatelessWidget {
               height: 130,
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             TextField(
               style: TextStyle(fontSize: 18, color: Colors.black54),
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
                 hintText: 'Usuario',
+                prefixIcon: Icon(Icons.person, color: Colors.grey,),
                 contentPadding: const EdgeInsets.all(15),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),
@@ -53,10 +56,12 @@ class LoginScreen extends StatelessWidget {
             TextField(
               obscureText: true,
               style: TextStyle(fontSize: 18, color: Colors.black54),
+              keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
                 hintText: 'Contraseña',
+                prefixIcon: Icon(Icons.lock, color: Colors.grey,),
                 contentPadding: const EdgeInsets.all(15),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),
@@ -69,7 +74,25 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                FlatButton(
+                  child: Text(
+                    'Olvidé mi contraseña',
+                     style: TextStyle(fontSize: 16),
+                 ),
+                  textColor: Colors.grey,
+                  onPressed: () {
+                   
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 40,
             ),
             FlatButton(
               child: Text(
@@ -83,9 +106,11 @@ class LoginScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               padding: const EdgeInsets.all(15),
-              color: Theme.of(context).secondaryHeaderColor,
+              color: Theme.of(context).buttonColor,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
+              },
             ),
           ],
         ),
