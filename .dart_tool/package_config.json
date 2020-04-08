@@ -74,6 +74,12 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "flutter_facebook_login",
+      "rootUri": "file:///Users/juancarlosvelazquez/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_login-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "flutter_launcher_icons",
       "rootUri": "file:///Users/juancarlosvelazquez/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.6.1",
       "packageUri": "lib/",
@@ -206,7 +212,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-04-07T21:19:14.378600Z",
+  "generated": "2020-04-08T21:21:39.610581Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }

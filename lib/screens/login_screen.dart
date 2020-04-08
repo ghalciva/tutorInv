@@ -1,5 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import '../screens/home_screen.dart';
+
+void initiateFacebookLogin() async{
+  var login = FacebookLogin();
+  var result = await login.logIn(['email']);
+  switch(result.status){
+    case FacebookLoginStatus.error:
+      print('error');
+      break;
+    case FacebookLoginStatus.cancelledByUser:
+        print('cancelled');
+      break;
+    case FacebookLoginStatus.loggedIn:
+      print('success');
+      break;
+  }
+}
+
+void onLoginStatusChange(bool isLoggedIn){
+  
+}
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';
