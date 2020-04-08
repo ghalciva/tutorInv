@@ -2,28 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import '../screens/home_screen.dart';
 
-void initiateFacebookLogin() async{
-  var login = FacebookLogin();
-  var result = await login.logIn(['email']);
-  switch(result.status){
-    case FacebookLoginStatus.error:
-      print('error');
-      break;
-    case FacebookLoginStatus.cancelledByUser:
-        print('cancelled');
-      break;
-    case FacebookLoginStatus.loggedIn:
-      print('success');
-      break;
-  }
-}
-
-void onLoginStatusChange(bool isLoggedIn){
-  
-}
-
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isLoggedIn = false;
+
+  void initiateFacebookLogin() async{
+    var login = FacebookLogin();
+    var result = await login.logIn(['email']);
+    switch(result.status){
+      case FacebookLoginStatus.error:
+        print('error');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+          print('cancelled');
+        break;
+      case FacebookLoginStatus.loggedIn:
+        onLoginStatusChange(true);
+        break;
+    }
+  }
+
+  void onLoginStatusChange(bool isLoggedIn){
+    setState((){
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,6 +139,27 @@ class LoginScreen extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () {
                 Navigator.of(context).pushNamed(HomeScreen.routeName);
+              },
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            FlatButton(
+              child: Text(
+                'Ingresar con Facebook',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              shape: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white, width: 2),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              padding: const EdgeInsets.all(15),
+              color: Theme.of(context).primaryColor,
+              textColor: Colors.white,
+              onPressed: () {
+                
               },
             ),
           ],
