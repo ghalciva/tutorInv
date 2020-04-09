@@ -98,6 +98,18 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "http",
+      "rootUri": "file:///Users/juancarlosvelazquez/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/juancarlosvelazquez/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "image",
       "rootUri": "file:///Users/juancarlosvelazquez/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.4",
       "packageUri": "lib/",
@@ -212,7 +224,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-04-08T22:09:09.231600Z",
+  "generated": "2020-04-09T00:26:46.321718Z",
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }
