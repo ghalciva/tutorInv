@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import './home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class SignupScreen extends StatelessWidget {
   static const routeName = '/signup';
 
-  String _email;
-  String _password;
+  final _formKey = GlobalKey<FormState>();
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  DatabaseReference dbRef = FirebaseDatabase.instance.reference().child("Users");
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void register(context){
+    Navigator.of(context).pushNamed(HomeScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +44,7 @@ class SignupScreen extends StatelessWidget {
                   minHeight: viewportConstraints.maxHeight,
                 ),
                 child: Form(
+                  key: _formKey,
                   child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -46,8 +57,13 @@ class SignupScreen extends StatelessWidget {
                       height: 30,
                     ),
                     TextFormField(
-                      validator: (value) => value.isEmpty ? 'Debe ingresar su correo' : null,
-                      onSaved: (value) => _email = value.trim(),
+                      controller: emailController,
+                      validator: (value){
+                        if(value.isEmpty){
+                          return 'Ingrese un correo';
+                        }
+                        return null;
+                      },
                       style: TextStyle(fontSize: 18, color: Colors.black54),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -69,7 +85,14 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
+                    TextFormField(
+                      controller: nameController,
+                      validator: (value){
+                        if(value.isEmpty){
+                          return 'Ingrese un usuario';
+                        }
+                        return null;
+                      },
                       style: TextStyle(fontSize: 18, color: Colors.black54),
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
@@ -91,7 +114,14 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
+                    TextFormField(
+                      controller: passwordController,
+                      validator: (value){
+                        if(value.isEmpty){
+                          return 'Ingrese una contraseña';
+                        }
+                        return null;
+                      },
                       obscureText: true,
                       style: TextStyle(fontSize: 18, color: Colors.black54),
                       keyboardType: TextInputType.visiblePassword,
@@ -152,7 +182,9 @@ class SignupScreen extends StatelessWidget {
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(HomeScreen.routeName);
+                        if(_formKey.currentState.validate()){
+                          register(context);
+                        }
                       },
                     ),
                   ],
