@@ -60,7 +60,7 @@ class SignupScreen extends StatelessWidget {
                       controller: emailController,
                       validator: (value){
                         if(value.isEmpty){
-                          return 'Ingrese un correo';
+                          return 'Ingrese un correo electrónico';
                         }
                         return null;
                       },
@@ -144,7 +144,13 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
+                    TextFormField(
+                      validator: (value){
+                        if(value.isEmpty){
+                          return 'Ingrese una contraseña';
+                        }
+                        return null;
+                      },
                       obscureText: true,
                       style: TextStyle(fontSize: 18, color: Colors.black54),
                       keyboardType: TextInputType.visiblePassword,
