@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
               },
             ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             FlatButton(
               child: Text(
@@ -168,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.circular(5),
               ),
               padding: const EdgeInsets.all(15),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).secondaryHeaderColor,
               textColor: Colors.white,
               onPressed: ()=> initiateFacebookLogin(),
             ),

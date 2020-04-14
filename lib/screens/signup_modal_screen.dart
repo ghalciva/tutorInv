@@ -1,8 +1,49 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:tutorinv/screens/signup_account_type_screen.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:http/http.dart' as http;
 
-class SignupModal extends StatelessWidget {
+class SignupModal extends StatefulWidget {
   static const routeName = '/signupmodal';
+  _SignupModalState createState() => _SignupModalState();
+}
+
+class _SignupModalState extends State<SignupModal> {
+  bool isLoggedIn = false;
+
+  void initiateFacebookLogin() async{
+    final login = FacebookLogin();
+    final result = await login.logIn(['email']);
+    switch(result.status){
+      case FacebookLoginStatus.error:
+        print('error');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+          print('cancelled');
+        break;
+      case FacebookLoginStatus.loggedIn:
+        onLoginStatusChange(true);
+        getUserInfo(result);
+        break;
+    }
+  }
+
+  void getUserInfo(FacebookLoginResult result) async{
+    final token = result.accessToken.token;
+    final graphResponse = await http.get(
+            'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
+    final profile = json.decode(graphResponse.body);
+    print(profile['email']);
+  }
+
+  void onLoginStatusChange(bool isLoggedIn){
+    setState((){
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +100,7 @@ class SignupModal extends StatelessWidget {
                       color: Theme.of(context).secondaryHeaderColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
-                      onPressed: () {},
+                      onPressed: ()=> initiateFacebookLogin(),
                     ),
                     SizedBox(
                       height: 50,
