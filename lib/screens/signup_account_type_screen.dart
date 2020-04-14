@@ -15,6 +15,19 @@ class _SignupAccountTypeState extends State<SignupAccountType> {
   bool isLoggedIn = false;
   var profileData;
 
+  void hireRole(context){
+    //validate if user clicked fb register or normal register
+    //then asign hire role 
+    Navigator.of(context).pushNamed(SignupScreen.routeName);                     
+  }
+
+  void workerRole(context){
+    //validate if user clicked fb register or normal register
+    //then asign hire role 
+    Navigator.of(context).pushNamed(SignupScreen.routeName);
+                        
+  }
+
   void initiateFacebookLogin() async{
     final login = FacebookLogin();
     final result = await login.logIn(['email']);
@@ -105,8 +118,8 @@ class _SignupAccountTypeState extends State<SignupAccountType> {
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(SignupScreen.routeName);
                         //hire role
+                        hireRole(context);
                       },
                     ),
                     SizedBox(
@@ -127,7 +140,7 @@ class _SignupAccountTypeState extends State<SignupAccountType> {
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(SignupScreen.routeName);
+                        workerRole(context);
                         //worker role
                       },
                     ),

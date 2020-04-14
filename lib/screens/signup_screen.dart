@@ -3,6 +3,10 @@ import './home_screen.dart';
 
 class SignupScreen extends StatelessWidget {
   static const routeName = '/signup';
+
+  String _email;
+  String _password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,8 @@ class SignupScreen extends StatelessWidget {
                 constraints: BoxConstraints(
                   minHeight: viewportConstraints.maxHeight,
                 ),
-                child: Column(
+                child: Form(
+                  child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
@@ -40,7 +45,9 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+                    TextFormField(
+                      validator: (value) => value.isEmpty ? 'Debe ingresar su correo' : null,
+                      onSaved: (value) => _email = value.trim(),
                       style: TextStyle(fontSize: 18, color: Colors.black54),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -149,6 +156,7 @@ class SignupScreen extends StatelessWidget {
                       },
                     ),
                   ],
+                ),
                 ),
               ),
             ),
