@@ -14,7 +14,37 @@ class SignupScreen extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
 
   void register(context){
-    Navigator.of(context).pushNamed(HomeScreen.routeName);
+    //Navigator.of(context).pushNamed(HomeScreen.routeName);
+    firebaseAuth
+        .createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((result) {
+      dbRef.child(result.user.uid).set({
+        "email": emailController.text,
+        "name": nameController.text
+      }).then((res) {
+        print(result.user.uid);
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      });
+    }).catchError((err) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text("La contraseña debe contener más de 6 caracteres."),
+              actions: [
+                FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    });
   }
 
   @override
