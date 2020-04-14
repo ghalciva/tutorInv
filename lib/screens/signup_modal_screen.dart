@@ -1,51 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:tutorinv/screens/signup_account_type_screen.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:http/http.dart' as http;
 
-class SignupModal extends StatefulWidget {
+class SignupModal extends StatelessWidget {
   static const routeName = '/signupmodal';
-  _SignupModalState createState() => _SignupModalState();
-}
 
-class _SignupModalState extends State<SignupModal> {
-  bool isLoggedIn = false;
-  var profileData;
-
-  void initiateFacebookLogin() async{
-    final login = FacebookLogin();
-    final result = await login.logIn(['email']);
-    switch(result.status){
-      case FacebookLoginStatus.error:
-        print('error');
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-          print('cancelled');
-        break;
-      case FacebookLoginStatus.loggedIn:
-        onLoginStatusChange(true);
-        getUserInfo(result);
-        break;
-    }
-  }
-
-  void getUserInfo(FacebookLoginResult result) async{
-    final token = result.accessToken.token;
-    final graphResponse = await http.get(
-            'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
-    final profile = json.decode(graphResponse.body);
-    SignupAccountType();
-    print(profile.toString());
-    
-  }
-
-  void onLoginStatusChange(bool isLoggedIn, {profileData}){
-    setState((){
-      this.isLoggedIn = isLoggedIn;
-      this.profileData = profileData;
-    });
+  void facebookLogin(bool, context){
+    Navigator.of(context).pushNamed(SignupAccountType.routeName);
   }
 
   @override
@@ -104,7 +64,9 @@ class _SignupModalState extends State<SignupModal> {
                       color: Theme.of(context).secondaryHeaderColor,
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
-                      onPressed: ()=> initiateFacebookLogin(),
+                      onPressed: (){
+                        facebookLogin(true, context);
+                      } 
                     ),
                     SizedBox(
                       height: 50,

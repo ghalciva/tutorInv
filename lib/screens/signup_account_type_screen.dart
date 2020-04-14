@@ -1,8 +1,53 @@
 import 'package:flutter/material.dart';
 import '../screens/signup_screen.dart';
 
-class SignupAccountType extends StatelessWidget {
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class SignupAccountType extends StatefulWidget {
   static const routeName = '/signupaccounttype';
+  _SignupAccountTypeState createState() => _SignupAccountTypeState();
+}
+
+class _SignupAccountTypeState extends State<SignupAccountType> {
+
+  bool isLoggedIn = false;
+  var profileData;
+
+  void initiateFacebookLogin() async{
+    final login = FacebookLogin();
+    final result = await login.logIn(['email']);
+    switch(result.status){
+      case FacebookLoginStatus.error:
+        print('error');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+          print('cancelled');
+        break;
+      case FacebookLoginStatus.loggedIn:
+        onLoginStatusChange(true);
+        getUserInfo(result);
+        break;
+    }
+  }
+
+  void getUserInfo(FacebookLoginResult result) async{
+    final token = result.accessToken.token;
+    final graphResponse = await http.get(
+            'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
+    final profile = json.decode(graphResponse.body);
+    SignupAccountType();
+    print(profile.toString()); //shows data array
+  }
+
+  void onLoginStatusChange(bool isLoggedIn, {profileData}){
+    setState((){
+      this.isLoggedIn = isLoggedIn;
+      this.profileData = profileData;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
