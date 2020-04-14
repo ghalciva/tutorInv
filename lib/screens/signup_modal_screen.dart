@@ -12,6 +12,7 @@ class SignupModal extends StatefulWidget {
 
 class _SignupModalState extends State<SignupModal> {
   bool isLoggedIn = false;
+  var profileData;
 
   void initiateFacebookLogin() async{
     final login = FacebookLogin();
@@ -35,12 +36,15 @@ class _SignupModalState extends State<SignupModal> {
     final graphResponse = await http.get(
             'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
     final profile = json.decode(graphResponse.body);
-    print(profile['email']);
+    SignupAccountType();
+    print(profile.toString());
+    
   }
 
-  void onLoginStatusChange(bool isLoggedIn){
+  void onLoginStatusChange(bool isLoggedIn, {profileData}){
     setState((){
       this.isLoggedIn = isLoggedIn;
+      this.profileData = profileData;
     });
   }
 
