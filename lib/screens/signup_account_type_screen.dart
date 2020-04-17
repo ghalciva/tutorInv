@@ -23,7 +23,7 @@ class _SignupAccountTypeState extends State<SignupAccountType> {
 
   void workerRole(context){
     //validate if user clicked fb register or normal register
-    //then asign hire role 
+    //then asign worker role 
     Navigator.of(context).pushNamed(SignupScreen.routeName);
                         
   }
