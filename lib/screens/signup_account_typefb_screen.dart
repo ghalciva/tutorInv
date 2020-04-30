@@ -1,13 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:tutorinv/screens/signup_account_type_screen.dart';
-import 'package:tutorinv/screens/signup_account_typefb_screen.dart';
+import 'package:tutorinv/screens/home_screen.dart';
 
-class SignupModal extends StatelessWidget {
-  static const routeName = '/signupmodal';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-  void facebookLogin(bool, context){
-    Navigator.of(context).pushNamed(SignupAccountTypeFb.routeName);
-    print("fb login button");
+import 'package:tutorinv/screens/my_profile_screen.dart';
+
+class SignupAccountTypeFb extends StatefulWidget {
+  static const routeName = '/signupaccounttypefb';
+  _SignupAccountTypeFbState createState() => _SignupAccountTypeFbState();
+}
+
+class _SignupAccountTypeFbState extends State<SignupAccountTypeFb> {
+
+  bool isLoggedIn = false;
+  var profileData;
+
+  void hireRole(context){
+    //validate if user clicked fb register or normal register
+    //then asign hire role 
+    initiateFacebookLogin();
+    print('investigador');        
+
+  }
+
+  void workerRole(context){
+    //validate if user clicked fb register or normal register
+    //then asign worker role 
+    print('cliente');
+    initiateFacebookLogin();
+  }
+
+  void initiateFacebookLogin() async{
+    final login = FacebookLogin();
+    final result = await login.logIn(['email']);
+    switch(result.status){
+      case FacebookLoginStatus.error:
+        print('error');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+          print('cancelled');
+        break;
+      case FacebookLoginStatus.loggedIn:
+        onLoginStatusChange(true);
+        getUserInfo(result);
+        break;
+    }
+  }
+
+  void getUserInfo(FacebookLoginResult result) async{
+    final token = result.accessToken.token;
+    final graphResponse = await http.get(
+            'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
+    final profile = json.decode(graphResponse.body);
+    Navigator.of(context).pushNamed(HomeScreen.routeName);
+    print(profile.toString()); //shows data array
+    MaterialPageRoute(builder: (context) => MyProfileScreen(profileData : profile.toString())); 
+  }
+
+  void onLoginStatusChange(bool isLoggedIn, {profileData}){
+    setState((){
+      this.isLoggedIn = isLoggedIn;
+      this.profileData = profileData;
+    });
   }
 
   @override
@@ -44,7 +100,7 @@ class SignupModal extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                        'Crear cuenta con Facebook: ',
+                        'Selecciona tu cuenta: ',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -54,37 +110,7 @@ class SignupModal extends StatelessWidget {
                     ),
                     FlatButton(
                       child: Text(
-                        'Iniciar con Facebook',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      shape: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      color: Theme.of(context).secondaryHeaderColor,
-                      textColor: Colors.white,
-                      padding: const EdgeInsets.all(15),
-                      onPressed: (){
-                        facebookLogin(true, context);
-                      } 
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                        'O ingresa tus datos: ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                      height: 20,
-                    ),
-                    FlatButton(
-                      child: Text(
-                        'Crear una cuenta',
+                        'Soy investigador',
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -97,36 +123,35 @@ class SignupModal extends StatelessWidget {
                       textColor: Colors.white,
                       padding: const EdgeInsets.all(15),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(SignupAccountType.routeName);
-                        print("signup form account");
+                        //hire role
+                        hireRole(context);
+                      },
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    FlatButton(
+                      child: Text(
+                        'Necesito asesoría',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      shape: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrangeAccent, width: 2),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      color: Theme.of(context).buttonColor,
+                      textColor: Colors.white,
+                      padding: const EdgeInsets.all(15),
+                      onPressed: () {
+                        workerRole(context);
+                        //worker role
                       },
                     ),
                     SizedBox(
                       height: 350,
                     ),
-                    Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Confirmado este paso, estás aceptando las \n políticas de privacidad de Investig-arte',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                        textAlign: 
-                          TextAlign.center,
-                      ),
-                      FlatButton(
-                        child: Text(
-                          'Ver términos y condiciones',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                        textColor: Colors.blue,
-                        onPressed: () {
-
-                        },
-                      ),
-                    ],
-                  ),
                   ],
                 ),
               ),

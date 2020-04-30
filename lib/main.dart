@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tutorinv/screens/my_profile_screen.dart';
 import 'package:tutorinv/screens/search_screen.dart';
 import 'package:tutorinv/screens/signup_account_type_screen.dart';
-
+import 'package:tutorinv/screens/signup_account_typefb_screen.dart';
 import './screens/getting_started_screen.dart';
 import './screens/login_screen.dart';
 import './screens/signup_screen.dart';
@@ -39,8 +40,10 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (ctx) => HomeScreen(),
         SignupModal.routeName: (ctx) => SignupModal(),
         SignupAccountType.routeName: (ctx) => SignupAccountType(),
+        SignupAccountTypeFb.routeName: (ctx) => SignupAccountTypeFb(),
         WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
         SearchScreen.routeName: (ctx) => SearchScreen(),
+        MyProfileScreen.routeName: (ctx) => MyProfileScreen(),
       },
     );
   }
