@@ -15,6 +15,5 @@ class Category{
       description: json["description"] as String,
       image: json["image"] as String,
     );
-
   }
 }
